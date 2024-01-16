@@ -5,7 +5,7 @@ import 'models/models.dart';
 class FlutterWbFace {
   /// 请求OCR
   /// [appId] 人脸核身控制台内申请的WBappid[String]
-  /// [userId] 个用户唯一的标识[String]
+  /// [userId] 用户唯一标识[String]
   /// [orderNo] 每次OCR识别请求的唯一订单号[String]，建议为32位字符串(不超过32位)
   Future<WbOcrResultModel?> ocr({
     required String appId,
