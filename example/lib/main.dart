@@ -113,6 +113,12 @@ class _MyAppState extends State<MyApp> {
                         Text('国徽面识别结果描述: ${_result!.backMsg}'),
                       ],
                     ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      await _flutterWbFacePlugin.face();
+                    },
+                    child: const Text('人脸识别'),
+                  ),
                 ],
               ),
             ),

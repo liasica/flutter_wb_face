@@ -1,4 +1,5 @@
 import Flutter
+import TencentCloudHuiyanSDKFace
 import UIKit
 
 public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
@@ -16,6 +17,8 @@ public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
             result("iOS " + UIDevice.current.systemVersion)
         case "ocr":
             handleOcr(call, result)
+        case "face":
+            handleFace(call, result)
         default:
             result(FlutterMethodNotImplemented)
         }
@@ -30,10 +33,14 @@ public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
            let sign = args["sign"] as? String,
            let orderNo = args["orderNo"] as? String {
             
-            let ocr = WBOCRManager(appId: appId, userId: userId)
-            ocr.start(result, sign: sign, orderNo: orderNo, nonce: nonce)
+            WBOCRManager.start(result, appId: appId, userId: userId, sign: sign, orderNo: orderNo, nonce: nonce)
         } else {
             result(nil)
         }
+    }
+    
+    private func handleFace(_ call: FlutterMethodCall, _ result: @escaping FlutterResult) {
+        // WBFaceVerifyManager.start(result)
+        let manager = WBFaceVerifyManager(result)
     }
 }

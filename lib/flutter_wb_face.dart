@@ -27,4 +27,9 @@ class FlutterWbFace {
       nonce: nonce,
     ));
   }
+
+  /// 请求人脸识别
+  Future face() async {
+    return FlutterWbFacePlatform.instance.face();
+  }
 }
