@@ -17,6 +17,10 @@ public class WBOCRManager {
     init(appId: String, userId: String) {
         self.appId = appId
         self.userId = userId
+        
+        let config = WBOCRConfig.shared()
+        config.retCrop = true
+        config.timeoutInterval = 60
     }
     
     var version: String {
