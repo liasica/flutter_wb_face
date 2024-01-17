@@ -40,7 +40,18 @@ public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
     }
     
     private func handleFace(_ call: FlutterMethodCall, _ result: @escaping FlutterResult) {
-        // WBFaceVerifyManager.start(result)
         let manager = WBFaceVerifyManager(result)
+        
+        if let args = call.arguments as? Dictionary<String, Any>,
+           let appId = args["appId"] as? String,
+           let userId = args["userId"] as? String,
+           let nonce = args["nonce"] as? String,
+           let sign = args["sign"] as? String,
+           let orderNo = args["orderNo"] as? String,
+           let licence = args["licence"] as? String {
+            manager.start(appId: appId, userId: userId, nonce: nonce, sign: sign, orderNo: orderNo, licence: licence)
+        } else {
+            result(nil)
+        }
     }
 }

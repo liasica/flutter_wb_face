@@ -10,13 +10,20 @@ import TencentCloudHuiyanSDKFace
 
 // MARK: - WBFaceVerifyCustomerServiceDelegate 实现方法
 extension WBFaceVerifyManager: WBFaceVerifyCustomerServiceDelegate {
-    
     public func wbfaceVerifyCustomerServiceDidFinished(with faceVerifyResult: WBFaceVerifyResult) {
-        <#code#>
+        print(WBFaceVerifyManager.LOG_TAG, faceVerifyResult)
+        self.result([
+            "isSuccess": faceVerifyResult.isSuccess,
+            "sign": faceVerifyResult.sign ?? "",
+            "liveRate": faceVerifyResult.liveRate ?? "",
+            "similarity": faceVerifyResult.similarity ?? "",
+            "userImageString": faceVerifyResult.userImageString ?? "",
+            "error": faceVerifyResult.error.description ,
+        ])
     }
     
     public func wbfaceVerifyCustomerServiceWillUploadBestImage(_ bestImage: UIImage) {
-        <#code#>
+        print(WBFaceVerifyManager.LOG_TAG, bestImage)
     }
 }
 
@@ -30,10 +37,10 @@ public class WBFaceVerifyManager : NSObject {
         self.result = result
     }
     
-    public func start(userId: String,
+    public func start(appId: String,
+                      userId: String,
                       nonce: String,
                       sign: String,
-                      appId: String,
                       orderNo: String,
                       licence: String
     ) {

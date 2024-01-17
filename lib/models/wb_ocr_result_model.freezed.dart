@@ -20,23 +20,58 @@ WbOcrResultModel _$WbOcrResultModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WbOcrResultModel {
+  /// 身份证号
   String? get idcard => throw _privateConstructorUsedError;
+
+  /// 姓名
   String? get name => throw _privateConstructorUsedError;
+
+  /// 性别
   String? get sex => throw _privateConstructorUsedError;
+
+  /// 民族
   String? get nation => throw _privateConstructorUsedError;
+
+  /// 住址
   String? get address => throw _privateConstructorUsedError;
+
+  /// 出生日期
   String? get birth => throw _privateConstructorUsedError;
+
+  /// 签发机关
   String? get authority => throw _privateConstructorUsedError;
+
+  /// 有效期限
   String? get validDate => throw _privateConstructorUsedError;
+
+  /// 人像面警告
   String? get frontWarning => throw _privateConstructorUsedError;
+
+  /// 国徽面警告
   String? get backWarning => throw _privateConstructorUsedError;
+
+  /// 人像面清晰度
   String? get frontClarity => throw _privateConstructorUsedError;
+
+  /// 国徽面清晰度
   String? get backClarity => throw _privateConstructorUsedError;
+
+  /// 人像面识别结果码
   String? get frontCode => throw _privateConstructorUsedError;
+
+  /// 人像面识别结果描述
   String? get frontMsg => throw _privateConstructorUsedError;
+
+  /// 国徽面识别结果码
   String? get backCode => throw _privateConstructorUsedError;
+
+  /// 国徽面识别结果描述
   String? get backMsg => throw _privateConstructorUsedError;
+
+  /// 人像面切图
   String? get frontCrop => throw _privateConstructorUsedError;
+
+  /// 国徽面切图
   String? get backCrop => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -343,40 +378,75 @@ class _$WbOcrResultModelImpl implements _WbOcrResultModel {
   factory _$WbOcrResultModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$WbOcrResultModelImplFromJson(json);
 
+  /// 身份证号
   @override
   final String? idcard;
+
+  /// 姓名
   @override
   final String? name;
+
+  /// 性别
   @override
   final String? sex;
+
+  /// 民族
   @override
   final String? nation;
+
+  /// 住址
   @override
   final String? address;
+
+  /// 出生日期
   @override
   final String? birth;
+
+  /// 签发机关
   @override
   final String? authority;
+
+  /// 有效期限
   @override
   final String? validDate;
+
+  /// 人像面警告
   @override
   final String? frontWarning;
+
+  /// 国徽面警告
   @override
   final String? backWarning;
+
+  /// 人像面清晰度
   @override
   final String? frontClarity;
+
+  /// 国徽面清晰度
   @override
   final String? backClarity;
+
+  /// 人像面识别结果码
   @override
   final String? frontCode;
+
+  /// 人像面识别结果描述
   @override
   final String? frontMsg;
+
+  /// 国徽面识别结果码
   @override
   final String? backCode;
+
+  /// 国徽面识别结果描述
   @override
   final String? backMsg;
+
+  /// 人像面切图
   @override
   final String? frontCrop;
+
+  /// 国徽面切图
   @override
   final String? backCrop;
 
@@ -484,40 +554,76 @@ abstract class _WbOcrResultModel implements WbOcrResultModel {
       _$WbOcrResultModelImpl.fromJson;
 
   @override
+
+  /// 身份证号
   String? get idcard;
   @override
+
+  /// 姓名
   String? get name;
   @override
+
+  /// 性别
   String? get sex;
   @override
+
+  /// 民族
   String? get nation;
   @override
+
+  /// 住址
   String? get address;
   @override
+
+  /// 出生日期
   String? get birth;
   @override
+
+  /// 签发机关
   String? get authority;
   @override
+
+  /// 有效期限
   String? get validDate;
   @override
+
+  /// 人像面警告
   String? get frontWarning;
   @override
+
+  /// 国徽面警告
   String? get backWarning;
   @override
+
+  /// 人像面清晰度
   String? get frontClarity;
   @override
+
+  /// 国徽面清晰度
   String? get backClarity;
   @override
+
+  /// 人像面识别结果码
   String? get frontCode;
   @override
+
+  /// 人像面识别结果描述
   String? get frontMsg;
   @override
+
+  /// 国徽面识别结果码
   String? get backCode;
   @override
+
+  /// 国徽面识别结果描述
   String? get backMsg;
   @override
+
+  /// 人像面切图
   String? get frontCrop;
   @override
+
+  /// 国徽面切图
   String? get backCrop;
   @override
   @JsonKey(ignore: true)
