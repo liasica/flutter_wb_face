@@ -75,12 +75,7 @@ class _MyAppState extends State<MyApp> {
                       final params = await getParams();
                       final data = params?['data'] as Map<String, dynamic>?;
                       if (data != null && await Permission.camera.request().isGranted) {
-                        final result = await _flutterWbFacePlugin.ocr(
-                          appId: data['appId'] as String,
-                          userId: data['userId'] as String,
-                          orderNo: data['orderNo'] as String,
-                          ticket: data['ticket'] as String,
-                        );
+                        final result = await _flutterWbFacePlugin.ocr(WbRequestModel.fromJson(data));
                         if (result != null) {
                           setState(() {
                             _result = result;

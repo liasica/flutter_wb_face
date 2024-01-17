@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'wb_ocr_model.dart';
+part of 'wb_request_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,38 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-WbOcrModel _$WbOcrModelFromJson(Map<String, dynamic> json) {
-  return _WbOcrModel.fromJson(json);
+WbRequestModel _$WbRequestModelFromJson(Map<String, dynamic> json) {
+  return _WbRequestModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$WbOcrModel {
+mixin _$WbRequestModel {
   String get appId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  String get orderNo => throw _privateConstructorUsedError;
+  String get version => throw _privateConstructorUsedError;
   String get nonce => throw _privateConstructorUsedError;
   String get sign => throw _privateConstructorUsedError;
-  String get orderNo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WbOcrModelCopyWith<WbOcrModel> get copyWith =>
+  $WbRequestModelCopyWith<WbRequestModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WbOcrModelCopyWith<$Res> {
-  factory $WbOcrModelCopyWith(
-          WbOcrModel value, $Res Function(WbOcrModel) then) =
-      _$WbOcrModelCopyWithImpl<$Res, WbOcrModel>;
+abstract class $WbRequestModelCopyWith<$Res> {
+  factory $WbRequestModelCopyWith(
+          WbRequestModel value, $Res Function(WbRequestModel) then) =
+      _$WbRequestModelCopyWithImpl<$Res, WbRequestModel>;
   @useResult
   $Res call(
-      {String appId, String userId, String nonce, String sign, String orderNo});
+      {String appId,
+      String userId,
+      String orderNo,
+      String version,
+      String nonce,
+      String sign});
 }
 
 /// @nodoc
-class _$WbOcrModelCopyWithImpl<$Res, $Val extends WbOcrModel>
-    implements $WbOcrModelCopyWith<$Res> {
-  _$WbOcrModelCopyWithImpl(this._value, this._then);
+class _$WbRequestModelCopyWithImpl<$Res, $Val extends WbRequestModel>
+    implements $WbRequestModelCopyWith<$Res> {
+  _$WbRequestModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -57,9 +63,10 @@ class _$WbOcrModelCopyWithImpl<$Res, $Val extends WbOcrModel>
   $Res call({
     Object? appId = null,
     Object? userId = null,
+    Object? orderNo = null,
+    Object? version = null,
     Object? nonce = null,
     Object? sign = null,
-    Object? orderNo = null,
   }) {
     return _then(_value.copyWith(
       appId: null == appId
@@ -70,6 +77,14 @@ class _$WbOcrModelCopyWithImpl<$Res, $Val extends WbOcrModel>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      orderNo: null == orderNo
+          ? _value.orderNo
+          : orderNo // ignore: cast_nullable_to_non_nullable
+              as String,
+      version: null == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String,
       nonce: null == nonce
           ? _value.nonce
           : nonce // ignore: cast_nullable_to_non_nullable
@@ -78,32 +93,33 @@ class _$WbOcrModelCopyWithImpl<$Res, $Val extends WbOcrModel>
           ? _value.sign
           : sign // ignore: cast_nullable_to_non_nullable
               as String,
-      orderNo: null == orderNo
-          ? _value.orderNo
-          : orderNo // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$WbOcrModelImplCopyWith<$Res>
-    implements $WbOcrModelCopyWith<$Res> {
-  factory _$$WbOcrModelImplCopyWith(
-          _$WbOcrModelImpl value, $Res Function(_$WbOcrModelImpl) then) =
-      __$$WbOcrModelImplCopyWithImpl<$Res>;
+abstract class _$$WbRequestModelImplCopyWith<$Res>
+    implements $WbRequestModelCopyWith<$Res> {
+  factory _$$WbRequestModelImplCopyWith(_$WbRequestModelImpl value,
+          $Res Function(_$WbRequestModelImpl) then) =
+      __$$WbRequestModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String appId, String userId, String nonce, String sign, String orderNo});
+      {String appId,
+      String userId,
+      String orderNo,
+      String version,
+      String nonce,
+      String sign});
 }
 
 /// @nodoc
-class __$$WbOcrModelImplCopyWithImpl<$Res>
-    extends _$WbOcrModelCopyWithImpl<$Res, _$WbOcrModelImpl>
-    implements _$$WbOcrModelImplCopyWith<$Res> {
-  __$$WbOcrModelImplCopyWithImpl(
-      _$WbOcrModelImpl _value, $Res Function(_$WbOcrModelImpl) _then)
+class __$$WbRequestModelImplCopyWithImpl<$Res>
+    extends _$WbRequestModelCopyWithImpl<$Res, _$WbRequestModelImpl>
+    implements _$$WbRequestModelImplCopyWith<$Res> {
+  __$$WbRequestModelImplCopyWithImpl(
+      _$WbRequestModelImpl _value, $Res Function(_$WbRequestModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,11 +127,12 @@ class __$$WbOcrModelImplCopyWithImpl<$Res>
   $Res call({
     Object? appId = null,
     Object? userId = null,
+    Object? orderNo = null,
+    Object? version = null,
     Object? nonce = null,
     Object? sign = null,
-    Object? orderNo = null,
   }) {
-    return _then(_$WbOcrModelImpl(
+    return _then(_$WbRequestModelImpl(
       appId: null == appId
           ? _value.appId
           : appId // ignore: cast_nullable_to_non_nullable
@@ -124,6 +141,14 @@ class __$$WbOcrModelImplCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      orderNo: null == orderNo
+          ? _value.orderNo
+          : orderNo // ignore: cast_nullable_to_non_nullable
+              as String,
+      version: null == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String,
       nonce: null == nonce
           ? _value.nonce
           : nonce // ignore: cast_nullable_to_non_nullable
@@ -132,97 +157,101 @@ class __$$WbOcrModelImplCopyWithImpl<$Res>
           ? _value.sign
           : sign // ignore: cast_nullable_to_non_nullable
               as String,
-      orderNo: null == orderNo
-          ? _value.orderNo
-          : orderNo // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$WbOcrModelImpl implements _WbOcrModel {
-  const _$WbOcrModelImpl(
+class _$WbRequestModelImpl implements _WbRequestModel {
+  const _$WbRequestModelImpl(
       {required this.appId,
       required this.userId,
+      required this.orderNo,
+      required this.version,
       required this.nonce,
-      required this.sign,
-      required this.orderNo});
+      required this.sign});
 
-  factory _$WbOcrModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WbOcrModelImplFromJson(json);
+  factory _$WbRequestModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WbRequestModelImplFromJson(json);
 
   @override
   final String appId;
   @override
   final String userId;
   @override
+  final String orderNo;
+  @override
+  final String version;
+  @override
   final String nonce;
   @override
   final String sign;
-  @override
-  final String orderNo;
 
   @override
   String toString() {
-    return 'WbOcrModel(appId: $appId, userId: $userId, nonce: $nonce, sign: $sign, orderNo: $orderNo)';
+    return 'WbRequestModel(appId: $appId, userId: $userId, orderNo: $orderNo, version: $version, nonce: $nonce, sign: $sign)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WbOcrModelImpl &&
+            other is _$WbRequestModelImpl &&
             (identical(other.appId, appId) || other.appId == appId) &&
             (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.orderNo, orderNo) || other.orderNo == orderNo) &&
+            (identical(other.version, version) || other.version == version) &&
             (identical(other.nonce, nonce) || other.nonce == nonce) &&
-            (identical(other.sign, sign) || other.sign == sign) &&
-            (identical(other.orderNo, orderNo) || other.orderNo == orderNo));
+            (identical(other.sign, sign) || other.sign == sign));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, appId, userId, nonce, sign, orderNo);
+      Object.hash(runtimeType, appId, userId, orderNo, version, nonce, sign);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WbOcrModelImplCopyWith<_$WbOcrModelImpl> get copyWith =>
-      __$$WbOcrModelImplCopyWithImpl<_$WbOcrModelImpl>(this, _$identity);
+  _$$WbRequestModelImplCopyWith<_$WbRequestModelImpl> get copyWith =>
+      __$$WbRequestModelImplCopyWithImpl<_$WbRequestModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$WbOcrModelImplToJson(
+    return _$$WbRequestModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _WbOcrModel implements WbOcrModel {
-  const factory _WbOcrModel(
+abstract class _WbRequestModel implements WbRequestModel {
+  const factory _WbRequestModel(
       {required final String appId,
       required final String userId,
+      required final String orderNo,
+      required final String version,
       required final String nonce,
-      required final String sign,
-      required final String orderNo}) = _$WbOcrModelImpl;
+      required final String sign}) = _$WbRequestModelImpl;
 
-  factory _WbOcrModel.fromJson(Map<String, dynamic> json) =
-      _$WbOcrModelImpl.fromJson;
+  factory _WbRequestModel.fromJson(Map<String, dynamic> json) =
+      _$WbRequestModelImpl.fromJson;
 
   @override
   String get appId;
   @override
   String get userId;
   @override
+  String get orderNo;
+  @override
+  String get version;
+  @override
   String get nonce;
   @override
   String get sign;
   @override
-  String get orderNo;
-  @override
   @JsonKey(ignore: true)
-  _$$WbOcrModelImplCopyWith<_$WbOcrModelImpl> get copyWith =>
+  _$$WbRequestModelImplCopyWith<_$WbRequestModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

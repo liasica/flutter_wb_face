@@ -31,9 +31,18 @@ public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
            let userId = args["userId"] as? String,
            let nonce = args["nonce"] as? String,
            let sign = args["sign"] as? String,
-           let orderNo = args["orderNo"] as? String {
+           let orderNo = args["orderNo"] as? String,
+           let version = args["version"] as? String {
             
-            WBOCRManager.start(result, appId: appId, userId: userId, sign: sign, orderNo: orderNo, nonce: nonce)
+            WBOCRManager.start(
+                result,
+                appId: appId,
+                userId: userId,
+                sign: sign,
+                orderNo: orderNo,
+                nonce: nonce,
+                version: version
+            )
         } else {
             result(nil)
         }
@@ -48,8 +57,17 @@ public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
            let nonce = args["nonce"] as? String,
            let sign = args["sign"] as? String,
            let orderNo = args["orderNo"] as? String,
-           let licence = args["licence"] as? String {
-            manager.start(appId: appId, userId: userId, nonce: nonce, sign: sign, orderNo: orderNo, licence: licence)
+           let licence = args["licence"] as? String,
+           let version = args["version"] as? String {
+            manager.start(
+                userId: userId,
+                nonce: nonce,
+                sign: sign,
+                appId: appId,
+                orderNo: orderNo,
+                licence: licence,
+                version: version
+            )
         } else {
             result(nil)
         }

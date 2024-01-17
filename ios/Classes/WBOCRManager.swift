@@ -22,7 +22,8 @@ public class WBOCRManager {
                              userId: String,
                              sign: String,
                              orderNo: String,
-                             nonce: String) {
+                             nonce: String,
+                             version: String) {
         DispatchQueue.main.async {
             let config = WBOCRConfig.shared()
             config.retCrop = true
@@ -35,7 +36,7 @@ public class WBOCRManager {
                 userId: userId,
                 sign: sign,
                 orderNo: orderNo,
-                version: "1.0.0",
+                version: version,
                 succeed: {
                     print(LOG_TAG, "initSDK 成功，开始调起OCR")
                     WBOCRService.shared().start { resultModel, _ in

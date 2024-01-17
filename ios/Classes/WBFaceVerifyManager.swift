@@ -11,7 +11,6 @@ import TencentCloudHuiyanSDKFace
 // MARK: - WBFaceVerifyCustomerServiceDelegate 实现方法
 extension WBFaceVerifyManager: WBFaceVerifyCustomerServiceDelegate {
     public func wbfaceVerifyCustomerServiceDidFinished(with faceVerifyResult: WBFaceVerifyResult) {
-        print(WBFaceVerifyManager.LOG_TAG, faceVerifyResult)
         self.result([
             "isSuccess": faceVerifyResult.isSuccess,
             "sign": faceVerifyResult.sign ?? "",
@@ -37,12 +36,13 @@ public class WBFaceVerifyManager : NSObject {
         self.result = result
     }
     
-    public func start(appId: String,
-                      userId: String,
+    public func start(userId: String,
                       nonce: String,
                       sign: String,
+                      appId: String,
                       orderNo: String,
-                      licence: String
+                      licence: String,
+                      version: String
     ) {
         DispatchQueue.main.async {
             let config = WBFaceVerifySDKConfig()
@@ -52,7 +52,7 @@ public class WBFaceVerifyManager : NSObject {
                                                                  sign: sign,
                                                                  appid: appId,
                                                                  orderNo: orderNo,
-                                                                 apiVersion: "1.0.0",
+                                                                 apiVersion: version,
                                                                  licence: licence,
                                                                  faceId: nil,
                                                                  sdkConfig: config) {
