@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
   # s.library = 'z'
   s.libraries = ['c++', 'z']
   s.ios.frameworks = 'CoreTelephony', 'CoreServices', 'CoreMedia', 'AssetsLibrary', 'AVFoundation', 'SystemConfiguration', 'WebKit', 'UIKit', 'CoreVideo', 'Security', 'ImageIO', 'VideoToolbox', 'Accelerate'
-  s.vendored_frameworks = 'Frameworks/TencentCloudHuiyanSDKFace.framework', 'Frameworks/tiny_opencv2.framework', 'Frameworks/tnnliveness.framework', 'Frameworks/TuringShieldCamRisk.framework', 'Frameworks/WBOCRService.framework', 'Frameworks/YTCommonLiveness.framework', 'Frameworks/YTCv.framework', 'Frameworks/YTFaceAlignmentTinyLiveness.framework', 'Frameworks/YTFaceDetectorLiveness.framework', 'Frameworks/YTFaceLiveReflect.framework', 'Frameworks/YTFaceTrackerLiveness.framework', 'Frameworks/YTImageRefiner.framework', 'Frameworks/YTPoseDetector.framework', 'Frameworks/YtSDKKitFrameworkTool.framework'
-  s.resource = 'Frameworks/WBOCRService.bundle', 'Frameworks/face-tracker-v001.bundle', 'Frameworks/TencentCloudHuiyanSDKFace.bundle'
+  s.vendored_frameworks = 'Frameworks/*.framework'
+  s.resource = 'Frameworks/*.bundle'
 end

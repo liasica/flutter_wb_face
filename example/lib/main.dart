@@ -47,7 +47,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _flutterWbFacePlugin = FlutterWbFace();
 
-  WbOcrResultModel? _result;
+  WbOcrResultModel? _ocrResult;
+  WbFaceVerifyResultModel? _faceResult;
 
   @override
   void initState() {
@@ -78,42 +79,59 @@ class _MyAppState extends State<MyApp> {
                         final result = await _flutterWbFacePlugin.ocr(WbRequestModel.fromJson(data));
                         if (result != null) {
                           setState(() {
-                            _result = result;
+                            _ocrResult = result;
                           });
                         }
                       }
                     },
                     child: const Text('OCR'),
                   ),
-                  if (_result != null)
+                  if (_ocrResult != null)
                     Column(
                       children: [
-                        Image.memory(base64Decode(_result!.frontCrop!)),
-                        Image.memory(base64Decode(_result!.backCrop!)),
-                        Text('身份证号: ${_result!.idcard}'),
-                        Text('姓名: ${_result!.name}'),
-                        Text('性别: ${_result!.sex}'),
-                        Text('民族: ${_result!.nation}'),
-                        Text('住址: ${_result!.address}'),
-                        Text('出生日期: ${_result!.birth}'),
-                        Text('签发机关: ${_result!.authority}'),
-                        Text('有效期限: ${_result!.validDate}'),
-                        Text('人像面警告: ${_result!.frontWarning}'),
-                        Text('国徽面警告: ${_result!.backWarning}'),
-                        Text('人像面清晰度: ${_result!.frontClarity}'),
-                        Text('国徽面清晰度: ${_result!.backClarity}'),
-                        Text('人像面识别结果码: ${_result!.frontCode}'),
-                        Text('人像面识别结果描述: ${_result!.frontMsg}'),
-                        Text('国徽面识别结果码: ${_result!.backCode}'),
-                        Text('国徽面识别结果描述: ${_result!.backMsg}'),
+                        Image.memory(base64Decode(_ocrResult!.frontCrop!)),
+                        Image.memory(base64Decode(_ocrResult!.backCrop!)),
+                        Text('身份证号: ${_ocrResult!.idcard}'),
+                        Text('姓名: ${_ocrResult!.name}'),
+                        Text('性别: ${_ocrResult!.sex}'),
+                        Text('民族: ${_ocrResult!.nation}'),
+                        Text('住址: ${_ocrResult!.address}'),
+                        Text('出生日期: ${_ocrResult!.birth}'),
+                        Text('签发机关: ${_ocrResult!.authority}'),
+                        Text('有效期限: ${_ocrResult!.validDate}'),
+                        Text('人像面警告: ${_ocrResult!.frontWarning}'),
+                        Text('国徽面警告: ${_ocrResult!.backWarning}'),
+                        Text('人像面清晰度: ${_ocrResult!.frontClarity}'),
+                        Text('国徽面清晰度: ${_ocrResult!.backClarity}'),
+                        Text('人像面识别结果码: ${_ocrResult!.frontCode}'),
+                        Text('人像面识别结果描述: ${_ocrResult!.frontMsg}'),
+                        Text('国徽面识别结果码: ${_ocrResult!.backCode}'),
+                        Text('国徽面识别结果描述: ${_ocrResult!.backMsg}'),
                       ],
                     ),
                   ElevatedButton(
                     onPressed: () async {
-                      await _flutterWbFacePlugin.face();
+                      const data = WbFaceVerifyModel(appId: '', licence: '', nonce: '', orderNo: '', sign: '', userId: '', version: '');
+                      final result = await _flutterWbFacePlugin.face(data);
+                      print(result);
+                      if (result != null) {
+                        setState(() {
+                          _faceResult = result;
+                        });
+                      }
                     },
                     child: const Text('人脸识别'),
                   ),
+                  if (_faceResult != null)
+                    Column(
+                      children: [
+                        Text('是否成功: ${_faceResult!.isSuccess}'),
+                        Text('签名: ${_faceResult!.sign}'),
+                        Text('活体检测分数: ${_faceResult!.liveRate}'),
+                        Text('人脸比对分数: ${_faceResult!.similarity}'),
+                        Text('错误: ${_faceResult!.error}'),
+                      ],
+                    ),
                 ],
               ),
             ),

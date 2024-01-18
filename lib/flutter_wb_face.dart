@@ -7,5 +7,5 @@ class FlutterWbFace {
   Future<WbOcrResultModel?> ocr(WbRequestModel data) => FlutterWbFacePlatform.instance.ocr(data);
 
   /// 请求人脸识别
-  Future face() => FlutterWbFacePlatform.instance.face();
+  Future<WbFaceVerifyResultModel?> face(WbFaceVerifyModel data) => FlutterWbFacePlatform.instance.face(data);
 }

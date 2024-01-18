@@ -28,7 +28,7 @@ abstract class FlutterWbFacePlatform extends PlatformInterface {
     throw UnimplementedError('ocr() has not been implemented.');
   }
 
-  Future face() {
+  Future<WbFaceVerifyResultModel?> face(WbFaceVerifyModel data) {
     throw UnimplementedError('face() has not been implemented.');
   }
 }

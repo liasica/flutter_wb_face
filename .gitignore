@@ -28,3 +28,4 @@ migrate_working_dir/
 .dart_tool/
 build/
 ios/Frameworks
+replace-bundle-id.sh

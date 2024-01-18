@@ -19,7 +19,8 @@ class MethodChannelFlutterWbFace extends FlutterWbFacePlatform {
   }
 
   @override
-  Future face() async {
-    await methodChannel.invokeMethod('face');
+  Future<WbFaceVerifyResultModel?> face(WbFaceVerifyModel data) async {
+    final result = await methodChannel.invokeMethod('face');
+    return result == null ? null : WbFaceVerifyResultModel.fromJson(Map<String, dynamic>.from(result));
   }
 }

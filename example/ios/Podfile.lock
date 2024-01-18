@@ -25,7 +25,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_wb_face: c1ddcf0ff480db94d0ef21cd0a1118a82481d285
+  flutter_wb_face: bcca33d5368323e854d470d0c4fecddc951960ca
   integration_test: 13825b8a9334a850581300559b8839134b124670
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
 

@@ -8,32 +8,39 @@
 import Flutter
 import TencentCloudHuiyanSDKFace
 
-// MARK: - WBFaceVerifyCustomerServiceDelegate 实现方法
-extension WBFaceVerifyManager: WBFaceVerifyCustomerServiceDelegate {
+// MARK: - WBFaceVerifyCustomerServiceDelegate
+public class WBFaceVerifyDelegate : NSObject, WBFaceVerifyCustomerServiceDelegate {
+    var result: FlutterResult?
+
     public func wbfaceVerifyCustomerServiceDidFinished(with faceVerifyResult: WBFaceVerifyResult) {
-        self.result([
+        let data: Dictionary<String, Any?> = [
             "isSuccess": faceVerifyResult.isSuccess,
-            "sign": faceVerifyResult.sign ?? "",
-            "liveRate": faceVerifyResult.liveRate ?? "",
-            "similarity": faceVerifyResult.similarity ?? "",
-            "userImageString": faceVerifyResult.userImageString ?? "",
-            "error": faceVerifyResult.error.description ,
-        ])
+            "sign": faceVerifyResult.sign,
+            "liveRate": faceVerifyResult.liveRate,
+            "similarity": faceVerifyResult.similarity,
+            "userImageString": faceVerifyResult.userImageString,
+            "error": faceVerifyResult.error?.description,
+        ]
+        
+        print("[WBFaceVerifyDelete]", "返回结果", data)
+        result?(data)
     }
     
-    public func wbfaceVerifyCustomerServiceWillUploadBestImage(_ bestImage: UIImage) {
-        print(WBFaceVerifyManager.LOG_TAG, bestImage)
-    }
 }
 
 // MARK: - WBFaceVerifyManager
 public class WBFaceVerifyManager : NSObject {
-    static let LOG_TAG = "[WBFaceVerify]"
+    
+    let LOG_TAG = "[WBFaceVerify]"
     
     var result: FlutterResult
     
     init(_ result: @escaping FlutterResult) {
         self.result = result
+    }
+    
+    deinit {
+        
     }
     
     public func start(userId: String,
@@ -42,19 +49,34 @@ public class WBFaceVerifyManager : NSObject {
                       appId: String,
                       orderNo: String,
                       licence: String,
-                      version: String
+                      version: String,
+                      faceId: String
     ) {
         DispatchQueue.main.async {
+            
+            
+            print(self.LOG_TAG, "isService", WBFaceVerifyCustomerService.sharedInstance().isService)
+            
             let config = WBFaceVerifySDKConfig()
             config.recordVideo = true
+            config.isIpv6 = false
+            config.useAdvanceCompare = false
+            config.mute = false
+            // 设置bundlePath
+            config.bundlePath = config.bundlePath + "/Frameworks/flutter_wb_face.framework"
+            
+            if let faceTrackerBundleDirPath = config.faceTrackerBundleDirPath {
+                config.faceTrackerBundleDirPath = faceTrackerBundleDirPath + "/Frameworks/flutter_wb_face.framework"
+            }
+            
             WBFaceVerifyCustomerService.sharedInstance().initSDK(withUserId: userId,
                                                                  nonce: nonce,
                                                                  sign: sign,
                                                                  appid: appId,
                                                                  orderNo: orderNo,
-                                                                 apiVersion: version,
+                                                                 apiVersion: "1.0.0",
                                                                  licence: licence,
-                                                                 faceId: nil,
+                                                                 faceId: faceId,
                                                                  sdkConfig: config) {
                 
                 if (!WBFaceVerifyCustomerService.sharedInstance().startWbFaceVeirifySdk()) {

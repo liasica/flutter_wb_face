@@ -48,17 +48,24 @@ public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
         }
     }
     
+    let faceDelegate: WBFaceVerifyDelegate = WBFaceVerifyDelegate()
+        
     private func handleFace(_ call: FlutterMethodCall, _ result: @escaping FlutterResult) {
         let manager = WBFaceVerifyManager(result)
+        self.faceDelegate.result = result
         
-        if let args = call.arguments as? Dictionary<String, Any>,
+        WBFaceVerifyCustomerService.sharedInstance().delegate = self.faceDelegate
+        
+        let arguments = call.arguments
+        if let args = arguments as? Dictionary<String, Any>,
            let appId = args["appId"] as? String,
            let userId = args["userId"] as? String,
            let nonce = args["nonce"] as? String,
            let sign = args["sign"] as? String,
            let orderNo = args["orderNo"] as? String,
            let licence = args["licence"] as? String,
-           let version = args["version"] as? String {
+           let version = args["version"] as? String,
+           let faceId = args["faceId"] as? String {
             manager.start(
                 userId: userId,
                 nonce: nonce,
@@ -66,7 +73,8 @@ public class FlutterWbFacePlugin: NSObject, FlutterPlugin {
                 appId: appId,
                 orderNo: orderNo,
                 licence: licence,
-                version: version
+                version: version,
+                faceId: faceId
             )
         } else {
             result(nil)
