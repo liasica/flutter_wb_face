@@ -24,7 +24,7 @@ abstract class FlutterWbFacePlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<WbOcrResultModel?> ocr(WbRequestModel data) {
+  Future<WbOcrResultModel?> ocr(WbOcrModel data) {
     throw UnimplementedError('ocr() has not been implemented.');
   }
 

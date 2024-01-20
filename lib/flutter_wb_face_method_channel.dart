@@ -13,7 +13,7 @@ class MethodChannelFlutterWbFace extends FlutterWbFacePlatform {
   final methodChannel = const MethodChannel(_methodChannelName);
 
   @override
-  Future<WbOcrResultModel?> ocr(WbRequestModel data) async {
+  Future<WbOcrResultModel?> ocr(WbOcrModel data) async {
     final result = await methodChannel.invokeMethod('ocr', data.toJson());
     return result == null ? null : WbOcrResultModel.fromJson(Map<String, dynamic>.from(result));
   }

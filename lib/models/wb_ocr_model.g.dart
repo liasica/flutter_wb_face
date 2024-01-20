@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wb_request_model.dart';
+part of 'wb_ocr_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WbRequestModelImpl _$$WbRequestModelImplFromJson(Map<String, dynamic> json) =>
-    _$WbRequestModelImpl(
+_$WbOcrModelImpl _$$WbOcrModelImplFromJson(Map<String, dynamic> json) =>
+    _$WbOcrModelImpl(
       appId: json['appId'] as String,
       userId: json['userId'] as String,
       orderNo: json['orderNo'] as String,
@@ -16,8 +16,7 @@ _$WbRequestModelImpl _$$WbRequestModelImplFromJson(Map<String, dynamic> json) =>
       sign: json['sign'] as String,
     );
 
-Map<String, dynamic> _$$WbRequestModelImplToJson(
-        _$WbRequestModelImpl instance) =>
+Map<String, dynamic> _$$WbOcrModelImplToJson(_$WbOcrModelImpl instance) =>
     <String, dynamic>{
       'appId': instance.appId,
       'userId': instance.userId,
