@@ -67,12 +67,12 @@ public class WBOCRManager {
                         }
                     } failed: { error, _ in
                         print(LOG_TAG, "startOCRService failed:", error)
-                        failure(result, error: error)
+                        result(nil)
                     }
                 },
                 failed: {error, _ in
                     print(LOG_TAG, "initSDK 失败:", error)
-                    failure(result, error: error)
+                    result(nil)
                 }
             )
         }
