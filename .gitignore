@@ -27,5 +27,8 @@ migrate_working_dir/
 **/doc/api/
 .dart_tool/
 build/
-ios/Frameworks
 replace-bundle-id.sh
+ios/Frameworks/*
+!ios/Frameworks/.gitkeep
+android/libs
+!android/libs/.gitkeep
