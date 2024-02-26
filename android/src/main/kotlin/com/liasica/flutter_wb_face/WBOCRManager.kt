@@ -1,10 +1,7 @@
 package com.liasica.flutter_wb_face
 
-import android.content.Context
+import android.app.Activity
 import android.os.Bundle
-import android.os.Parcelable
-import android.widget.Toast
-import com.tencent.cloud.huiyansdkface.normal.thread.ThreadOperate.runOnUiThread
 import com.tencent.cloud.huiyansdkocr.WbCloudOcrSDK
 import com.tencent.cloud.huiyansdkocr.WbCloudOcrSDK.InputData
 import com.tencent.cloud.huiyansdkocr.net.resultmodel.EXIDCardResult
@@ -18,7 +15,7 @@ class WBOCRManager {
     companion object {
         private const val LOG_TAG = "[WBOCRManager]"
 
-        fun start(context: Context, arguments: Map<*, *>?, result: MethodChannel.Result) {
+        fun start(activity: Activity, arguments: Map<*, *>?, result: MethodChannel.Result) {
             try {
                 arguments?.let {
                     val appId = arguments["appId"] as? String
@@ -45,12 +42,12 @@ class WBOCRManager {
                     // 设置超时时间 60s
                     data.putLong(WbCloudOcrSDK.SCAN_TIME, 60000)
 
-                    WbCloudOcrSDK.getInstance().init(context, WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeContinus, data, object : WbCloudOcrSDK.OcrLoginListener {
+                    WbCloudOcrSDK.getInstance().init(activity, WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeContinus, data, object : WbCloudOcrSDK.OcrLoginListener {
                         // 登录成功，调起OCR
                         override fun onLoginSuccess() {
                             Log.i(LOG_TAG, "onLoginSuccess")
 
-                            WbCloudOcrSDK.getInstance().startActivityForOcr(context) { resultCode, resultMsg, parcel ->
+                            WbCloudOcrSDK.getInstance().startActivityForOcr(activity) { _, _, parcel ->
                                 Log.i(LOG_TAG, "onFinish: $parcel")
                                 if (parcel != null) {
                                     val exidCardResult = parcel as EXIDCardResult

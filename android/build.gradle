@@ -49,7 +49,7 @@ android {
 
     defaultConfig {
         minSdkVersion 19
-        consumerProguardFiles 'kyc-cloud-normal-proguard-rules.pro'
+        consumerProguardFiles 'kyc-cloud-normal-proguard-rules.pro', 'kyc-cloud-face-consumer-proguard-rules.pro'
     }
 
     dependencies {

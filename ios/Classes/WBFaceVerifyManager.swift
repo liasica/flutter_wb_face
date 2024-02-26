@@ -54,9 +54,6 @@ public class WBFaceVerifyManager : NSObject {
     ) {
         DispatchQueue.main.async {
             
-            
-            print(self.LOG_TAG, "isService", WBFaceVerifyCustomerService.sharedInstance().isService)
-            
             let config = WBFaceVerifySDKConfig()
             config.recordVideo = true
             config.isIpv6 = false

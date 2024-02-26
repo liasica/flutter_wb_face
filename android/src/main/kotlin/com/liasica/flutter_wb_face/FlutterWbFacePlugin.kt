@@ -46,8 +46,8 @@ class FlutterWbFacePlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     override fun onMethodCall(call: MethodCall, result: Result) {
         try {
             when (call.method) {
-                "ocr" -> WBOCRManager.start(context, call.arguments as Map<*, *>?, result)
-                "face" -> WBFaceVerifyManager.start(call.arguments as Map<*, *>?, result)
+                "ocr" -> WBOCRManager.start(activity, call.arguments as Map<*, *>?, result)
+                "face" -> WBFaceVerifyManager.start(activity, call.arguments as Map<*, *>?, result)
                 else -> result.notImplemented()
             }
         } catch (e: Exception) {
