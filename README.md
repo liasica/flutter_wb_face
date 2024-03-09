@@ -1,5 +1,9 @@
 # Flutter 腾讯人脸核验插件
 
+## 参考
+ - [Demystifying Local AAR Usage in Flutter: Step-by-Step Guide for Flutter Plugins and Projects](https://itnext.io/working-with-local-aar-files-in-flutter-6028bb289124)
+ - [FlutterDeepAR](https://github.com/KalanaPerera/FlutterDeepAR/blob/master/android/build.gradle)
+
 ## 引入插件
 
 ### iOS
